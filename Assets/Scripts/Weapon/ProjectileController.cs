@@ -93,7 +93,7 @@ public class ProjectileController : MonoBehaviour
     {
         if (createFx)
         {
-            projectileManager.CreateImpactParticlesAtPostion(position, rangeWeaponHandler);
+            //projectileManager.CreateImpactParticlesAtPostion(position, rangeWeaponHandler);
         }
 
         Destroy(this.gameObject);

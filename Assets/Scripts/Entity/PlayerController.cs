@@ -8,12 +8,12 @@ public class PlayerController : BaseController
     public void Init(GameManager gameManager)
     {
         this.gameManager = gameManager;
-        camera = Camera.main;
     }
 
 
     protected override void HandleAction()
     {
+        camera = Camera.main;
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         movementDirection = new Vector2(horizontal, vertical).normalized;

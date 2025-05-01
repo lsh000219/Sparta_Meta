@@ -60,8 +60,8 @@ public class WeaponHandler : MonoBehaviour
     {
         AttackAnimation();
 
-        if (attackSoundClip)
-            SoundManager.PlayClip(attackSoundClip);
+        //if (attackSoundClip)
+        //    SoundManager.PlayClip(attackSoundClip);
     }
 
     public void AttackAnimation()
