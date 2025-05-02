@@ -7,6 +7,11 @@ using UnityEngine.UI;
 
 public class GameOverUI : BaseUI
 {
+    private ObjectManager objectManager;
+    private GoblinManager goblinManager; 
+    private PlayerController playerController;
+
+
     [SerializeField] private Button restartButton;
     [SerializeField] private Button exitButton;
 
@@ -24,7 +29,10 @@ public class GameOverUI : BaseUI
 
     public void OnClickExitButton()
     {
-        Application.Quit();
+        GoblinUIManager.instance.SetWaiting();
+        GoblinManager.instance.Visible();
+        PlayerController.instance.ExitGoblin();
+
     }
 
     protected override UIState GetUIState()

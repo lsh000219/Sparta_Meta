@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 using Random = UnityEngine.Random;
 
 public class EnemyManager : MonoBehaviour
@@ -24,18 +25,18 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private float timeBetweenSpawns = 0.2f;
     [SerializeField] private float timeBetweenWaves = 1f;
 
-    GameManager gameManager;
+    GoblinManager goblinManager;
 
-    public void Init(GameManager gameManager)
+    public void Init(GoblinManager goblinManager)
     {
-        this.gameManager = gameManager;
+        this.goblinManager = goblinManager;
     }
 
     public void StartWave(int waveCount)
     {
         if (waveCount <= 0)
         {
-            gameManager.EndOfWave();
+            goblinManager.EndOfWave();
             return;
         }
 
@@ -46,6 +47,11 @@ public class EnemyManager : MonoBehaviour
 
     public void StopWave()
     {
+        foreach (var e in activeEnemies)
+        {
+            Destroy(e.gameObject);
+        }
+
         StopAllCoroutines();
     }
 
@@ -85,7 +91,7 @@ public class EnemyManager : MonoBehaviour
         // 적 생성 및 리스트에 추가
         GameObject spawnedEnemy = Instantiate(randomPrefab, new Vector3(randomPosition.x, randomPosition.y), Quaternion.identity);
         EnemyController enemyController = spawnedEnemy.GetComponent<EnemyController>();
-        enemyController.Init(this, gameManager.player.transform);
+        enemyController.Init(this, goblinManager.player.transform);
 
         activeEnemies.Add(enemyController);
     }
@@ -108,6 +114,6 @@ public class EnemyManager : MonoBehaviour
     {
         activeEnemies.Remove(enemy);
         if (enemySpawnComplite && activeEnemies.Count == 0)
-            gameManager.EndOfWave();
+            goblinManager.EndOfWave();
     }
 }

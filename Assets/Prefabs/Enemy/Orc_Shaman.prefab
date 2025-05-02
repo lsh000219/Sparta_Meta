@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4507129902029583327}
   - component: {fileID: 4913686894164305379}
   - component: {fileID: 1308186331426871385}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: MainSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 6179157216816926650}
   - component: {fileID: 953228498647404746}
   - component: {fileID: -2650669937848753564}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Orc_Shaman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 772520908430532658}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: WeaponPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class HomeUI : BaseUI
 {
+
     [SerializeField] private Button startButton;
     [SerializeField] private Button exitButton;
 
-    public override void Init(UIManager uiManager)
+    public void Init(GoblinUIManager uiManager)
     {
         base.Init(uiManager);
         startButton.onClick.AddListener(OnClickStartButton);
@@ -17,12 +18,12 @@ public class HomeUI : BaseUI
 
     public void OnClickStartButton()
     {
-        GameManager.instance.StartGame();
+        GoblinManager.instance.StartGame();
     }
 
     public void OnClickExitButton()
     {
-        Application.Quit();
+        GoblinUIManager.instance.SetWaiting();
     }
 
     protected override UIState GetUIState()

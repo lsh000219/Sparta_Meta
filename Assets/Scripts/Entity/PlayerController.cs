@@ -2,12 +2,15 @@
 
 public class PlayerController : BaseController
 {
-    private GameManager gameManager;
+    public static PlayerController instance;
+
+    private GoblinManager goblinManager;
     private Camera camera;
 
-    public void Init(GameManager gameManager)
+    public void Init(GoblinManager goblinManager)
     {
-        this.gameManager = gameManager;
+        instance = this;
+        this.goblinManager = goblinManager;
     }
 
 
@@ -37,6 +40,8 @@ public class PlayerController : BaseController
     public override void Death()
     {
         base.Death();
-        gameManager.GameOver();
+        goblinManager.GameOver();
     }
+
+    public void ExitGoblin() { transform.position = new Vector2(0f, 8.18f); }
 }

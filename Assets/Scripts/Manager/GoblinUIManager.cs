@@ -5,13 +5,15 @@ using UnityEngine;
 
 public enum UIState
 {
+    Waiting,
     Home,
     Game,
     GameOver,
 }
 
-public class UIManager : MonoBehaviour
+public class GoblinUIManager : UIManager
 {
+    public static GoblinUIManager instance;
     HomeUI homeUI;
     GameUI gameUI;
     GameOverUI gameOverUI;
@@ -20,6 +22,7 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
+        instance = this;
         homeUI = GetComponentInChildren<HomeUI>(true);
         homeUI.Init(this);
         gameUI = GetComponentInChildren<GameUI>(true);
@@ -27,6 +30,16 @@ public class UIManager : MonoBehaviour
         gameOverUI = GetComponentInChildren<GameOverUI>(true);
         gameOverUI.Init(this);
 
+        ChangeState(UIState.Waiting);
+    }
+
+    public void SetWaiting()
+    {
+        ChangeState(UIState.Waiting);
+    }
+
+    public void SetHome()
+    {
         ChangeState(UIState.Home);
     }
 

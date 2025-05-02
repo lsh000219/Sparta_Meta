@@ -191,7 +191,7 @@ MonoBehaviour:
   attackSoundClip: {fileID: 8300000, guid: c788e5ace04254344a999d85a83e6b77, type: 3}
   target:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 256
   isOnKnockback: 1
   knockbackPower: 0.1
   knockbackTime: 0.5

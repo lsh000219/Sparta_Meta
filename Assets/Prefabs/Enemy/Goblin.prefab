@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4712113376390145899}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: WeaponPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 310423275333735119}
   - component: {fileID: 3303240282109367861}
   - component: {fileID: 6530487293957797053}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Goblin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 6669605597866169646}
   - component: {fileID: 6382477558306308871}
   - component: {fileID: 2665437571042870413}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: MainSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
