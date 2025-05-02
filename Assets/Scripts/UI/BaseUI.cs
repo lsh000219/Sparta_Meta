@@ -9,8 +9,8 @@ public abstract class BaseUI : MonoBehaviour
         this.uiManager = uiManager;
     }
 
-    protected abstract UIState GetUIState();
-    public void SetActive(UIState state)
+    protected abstract UIManager.UIState GetUIState();
+    public void SetActive(UIManager.UIState state)
     {
         this.gameObject.SetActive(GetUIState() == state);
     }

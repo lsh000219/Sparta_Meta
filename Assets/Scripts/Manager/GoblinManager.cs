@@ -77,10 +77,10 @@ public class GoblinManager : GameManager
     }
 
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        uiManager.SetWaiting();
-    }
+    //private void OnTriggerExit2D(Collider2D other)
+    //{
+    //    uiManager.SetWaiting();
+    //}
 
     public void Visible()
     {

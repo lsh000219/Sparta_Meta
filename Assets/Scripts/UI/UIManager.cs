@@ -4,5 +4,12 @@ using UnityEngine;
 
 public abstract class UIManager : MonoBehaviour
 {
-
+    public enum UIState
+    {
+        Waiting,
+        GoblinStart,
+        GoblinGame,
+        GoblinGameOver,
+        ExitTheDungeonStart,
+    }
 }

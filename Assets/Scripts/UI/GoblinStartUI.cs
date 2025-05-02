@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HomeUI : BaseUI
+public class GoblinStartUI : BaseUI
 {
 
     [SerializeField] private Button startButton;
@@ -26,8 +26,8 @@ public class HomeUI : BaseUI
         GoblinUIManager.instance.SetWaiting();
     }
 
-    protected override UIState GetUIState()
+    protected override UIManager.UIState GetUIState()
     {
-        return UIState.Home;
+        return UIManager.UIState.GoblinStart;
     }
 }

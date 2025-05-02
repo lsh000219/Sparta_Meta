@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameUI : BaseUI
+public class GoblinGameUI : BaseUI
 {
     [SerializeField] public TextMeshProUGUI waveText;
     [SerializeField] public Slider hpSlider;
@@ -25,8 +25,8 @@ public class GameUI : BaseUI
         waveText.text = wave.ToString();
     }
 
-    protected override UIState GetUIState()
+    protected override UIManager.UIState GetUIState()
     {
-        return UIState.Game;
+        return UIManager.UIState.GoblinGame;
     }
 }

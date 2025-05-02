@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameOverUI : BaseUI
+public class GoblinGameOverUI : BaseUI
 {
     private ObjectManager objectManager;
     private GoblinManager goblinManager; 
@@ -35,8 +35,8 @@ public class GameOverUI : BaseUI
 
     }
 
-    protected override UIState GetUIState()
+    protected override UIManager.UIState GetUIState()
     {
-        return UIState.GameOver;
+        return UIManager.UIState.GoblinGameOver;
     }
 }

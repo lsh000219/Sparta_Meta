@@ -3,31 +3,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum UIState
-{
-    Waiting,
-    Home,
-    Game,
-    GameOver,
-}
+
 
 public class GoblinUIManager : UIManager
 {
     public static GoblinUIManager instance;
-    HomeUI homeUI;
-    GameUI gameUI;
-    GameOverUI gameOverUI;
+    GoblinStartUI homeUI;
+    GoblinGameUI gameUI;
+    GoblinGameOverUI gameOverUI;
     private UIState currentState;
 
 
     private void Awake()
     {
         instance = this;
-        homeUI = GetComponentInChildren<HomeUI>(true);
+        homeUI = GetComponentInChildren<GoblinStartUI>(true);
         homeUI.Init(this);
-        gameUI = GetComponentInChildren<GameUI>(true);
+        gameUI = GetComponentInChildren<GoblinGameUI>(true);
         gameUI.Init(this);
-        gameOverUI = GetComponentInChildren<GameOverUI>(true);
+        gameOverUI = GetComponentInChildren<GoblinGameOverUI>(true);
         gameOverUI.Init(this);
 
         ChangeState(UIState.Waiting);
@@ -40,17 +34,17 @@ public class GoblinUIManager : UIManager
 
     public void SetHome()
     {
-        ChangeState(UIState.Home);
+        ChangeState(UIState.GoblinStart);
     }
 
     public void SetPlayGame()
     {
-        ChangeState(UIState.Game);
+        ChangeState(UIState.GoblinGame);
     }
 
     public void SetGameOver()
     {
-        ChangeState(UIState.GameOver);
+        ChangeState(UIState.GoblinGameOver);
     }
 
     public void ChangeWave(int waveIndex)
