@@ -34,18 +34,6 @@ public class GoblinManager : GameManager
         enemyManager.Init(this);
     }
 
-    private void Start()
-    {
-        if (!isFirstLoading)
-        {
-            StartGame();
-        }
-        else
-        {
-            isFirstLoading = false;
-        }
-    }
-
     public void StartGame()
     {
         Invisible();

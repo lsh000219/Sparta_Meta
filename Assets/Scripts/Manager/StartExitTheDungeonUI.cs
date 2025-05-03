@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class ExitTheDungeonUI : UIManager
+public class StartExitTheDungeonUI : UIManager
 {
     private Canvas StartCanvas;
     [SerializeField] private Button startButton;
@@ -24,7 +25,7 @@ public class ExitTheDungeonUI : UIManager
 
     public void OnClickStartButton()
     {
-        //SceneManager.LoadScene("ExitTheDungeonScene");
+        SceneManager.LoadScene("ExitTheDungeonScene");
     }
 
     public void OnClickExitButton()
