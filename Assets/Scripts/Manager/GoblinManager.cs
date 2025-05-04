@@ -36,6 +36,7 @@ public class GoblinManager : GameManager
 
     public void StartGame()
     {
+        currentWaveIndex = 0;
         Invisible();
         uiManager.SetPlayGame();
         StartNextWave();
@@ -55,6 +56,7 @@ public class GoblinManager : GameManager
 
     public void GameOver()
     {
+        PlayerController.instance.PlusGold(currentWaveIndex);
         enemyManager.StopWave();
         uiManager.SetGameOver();
     }

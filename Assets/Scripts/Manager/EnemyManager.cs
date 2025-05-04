@@ -49,8 +49,13 @@ public class EnemyManager : MonoBehaviour
     {
         foreach (var e in activeEnemies)
         {
-            Destroy(e.gameObject);
+            if (e != null)
+            {
+                Destroy(e.gameObject);
+            }
         }
+
+        activeEnemies.Clear();
 
         StopAllCoroutines();
     }
@@ -112,7 +117,9 @@ public class EnemyManager : MonoBehaviour
 
     public void RemoveEnemyOnDeath(EnemyController enemy)
     {
-        activeEnemies.Remove(enemy);
+        for(int i = 0; i < activeEnemies.Count; i++) { if (activeEnemies[i] == enemy) { activeEnemies.RemoveAt(i); } }
+
+        Destroy(enemy.gameObject);
         if (enemySpawnComplite && activeEnemies.Count == 0)
             goblinManager.EndOfWave();
     }
