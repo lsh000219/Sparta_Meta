@@ -10,15 +10,17 @@ public class PlayerController : BaseController
 
     public void Init(GoblinManager goblinManager)
     {
+        this.gold = PlayerPrefs.GetInt("Gold", 0);
         instance = this;
         this.goblinManager = goblinManager;
     }
+    public void PlusGold(int gold) { this.gold += gold; PlayerPrefs.SetInt("Gold", this.gold); PlayerPrefs.Save(); }
 
-    public void PlusGold(int gold) { this.gold += gold; }
+    public int CheckGold() { return gold; }
 
-    public void BuyItem(int gold, int item) { MinusGold(gold); GetItem(item); }
+    public void BuyItem(int gold, int item) { MinusGold(gold); GetItem(item);}
 
-    private void MinusGold(int gold) { this.gold -= gold; }
+    private void MinusGold(int gold) { this.gold -= gold; PlayerPrefs.SetInt("Gold", this.gold); PlayerPrefs.Save(); }
 
     private void GetItem(int item) { inventory += item; }
 
@@ -58,4 +60,9 @@ public class PlayerController : BaseController
     }
 
     public void ExitGoblin() { transform.position = new Vector2(0f, 8.18f); }
+
+    private void DeleteData()
+    {
+        PlayerPrefs.DeleteKey("Gold");
+    }
 }

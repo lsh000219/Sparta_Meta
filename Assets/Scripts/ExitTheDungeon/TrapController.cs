@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class TrapController : MonoBehaviour
@@ -14,6 +15,7 @@ public class TrapController : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
+        PlayerController.instance.PlusGold(exitTheDungeonManager.CheckStage());
         exitTheDungeonManager.GameOver();
     }
 }

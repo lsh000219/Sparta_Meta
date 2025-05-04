@@ -31,6 +31,8 @@ public class ExitTheDungeonManager : GameManager
         trapManager.EraseTrap(); trapManager.StartStage(stage);
     }
 
+    public int CheckStage() {  return stage; }
+
     public void GameStart()
     {
         stage = 1;
@@ -38,5 +40,8 @@ public class ExitTheDungeonManager : GameManager
         trapManager.StartStage(stage);
     }
 
-    public void GameOver() { trapManager.EraseTrap(); player.IsDead(true); exitTheDungeonGameOverUI.GameOverUI(); }
+    public void GameOver() { 
+        trapManager.EraseTrap(); player.IsDead(true); 
+        exitTheDungeonGameOverUI.GameOverUI(); 
+    }
 }
