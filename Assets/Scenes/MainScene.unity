@@ -27156,6 +27156,12 @@ MonoBehaviour:
   button44: {fileID: 548649075}
   button88: {fileID: 1866269020}
   button1616: {fileID: 1706214734}
+  RidingPivot: {fileID: 1583331111}
+  Zom: {fileID: 4934827361663921672, guid: 7c7cc101f5a8832408848f2c04f845f5, type: 3}
+  Imp: {fileID: 1998572464289505583, guid: e3a5f09fd6d34e64fad73c06ae367766, type: 3}
+  Pum: {fileID: 2368728458814634238, guid: c25a26266f6b4d745814c49055086053, type: 3}
+  Gob: {fileID: 7142432705216657060, guid: 95da13963ae57c54ab430084b1ca7ab2, type: 3}
+  Liz: {fileID: 7042364942947747516, guid: 426ae80fe9ddc2a4789d7d25d3af6b2c, type: 3}
 --- !u!1 &2101605595
 GameObject:
   m_ObjectHideFlags: 0
