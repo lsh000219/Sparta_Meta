@@ -8,16 +8,17 @@ public abstract class BaseNPC : MonoBehaviour
 {
     private Canvas Canvas;
     [SerializeField] private Button exitButton;
+    [SerializeField] private Canvas canvas;
 
     private void Awake() { 
-        Canvas = transform.Find("UI").GetComponent<Canvas>(); 
+        //Canvas = transform.Find("UI").GetComponent<Canvas>(); 
         exitButton.onClick.AddListener(OnClickExitButton); 
     }
 
-    public void OnCollisionEnter2D(Collision2D collision) { Canvas.gameObject.SetActive(true); }
+    public void OnCollisionEnter2D(Collision2D collision) { canvas.gameObject.SetActive(true); }
 
     public void OnClickExitButton()
     {
-        Canvas.gameObject.SetActive(false);
+        canvas.gameObject.SetActive(false);
     }
 }

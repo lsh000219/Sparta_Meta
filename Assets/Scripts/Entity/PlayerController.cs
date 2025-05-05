@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : BaseController
@@ -6,23 +7,28 @@ public class PlayerController : BaseController
     public static PlayerController instance;
 
     private Camera camera;
-    private int gold, inven = 0, Equip = 0;
-    private List<ItemController> inventory;
+    private int gold, inven = 0, equip = 0;
+    private ItemManager itemManager;
 
 
     public void Init(GameManager gameManager)
     {
         this.gold = PlayerPrefs.GetInt("Gold", 0);
         this.inven = PlayerPrefs.GetInt("Inven", 0);
+        this.equip = PlayerPrefs.GetInt("Equip", 0);
         instance = this;
+        itemManager = new ItemManager();
         camera = Camera.main;
     }
 
-    public void PlusGold(int gold) { this.gold += gold; PlayerPrefs.SetInt("Gold", this.gold); PlayerPrefs.Save(); }
 
     public int Gold() { return gold; }
 
-    public void BuyItem(ItemController itemController) { MinusGold(itemController.Price); GetItem(itemController);}
+    public void PlusGold(int gold) 
+    { this.gold += gold; PlayerPrefs.SetInt("Gold", this.gold); PlayerPrefs.Save(); }
+
+    public void BuyItem(ItemController itemController) 
+    { MinusGold(itemController.Price); GetItem(itemController);}
 
     private void MinusGold(int price) 
     { 
@@ -32,7 +38,7 @@ public class PlayerController : BaseController
 
     private void GetItem(ItemController itemController) { 
         inven += itemController.ItemNum; 
-        inventory.Add(itemController); 
+        //inventory.Add(itemController); 
         PlayerPrefs.SetInt("Inven", this.inven); PlayerPrefs.Save();
     }
 
@@ -40,6 +46,11 @@ public class PlayerController : BaseController
     {
         if ((inven & itemNum) == itemNum) return true;
         else return false;
+    }
+
+    public int Equip {
+        get { return equip; }
+        set { equip = value; }
     }
 
     protected override void HandleAction()

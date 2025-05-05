@@ -15,7 +15,7 @@ public class TrapController : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        PlayerController.instance.PlusGold(exitTheDungeonManager.CheckStage());
+        PlayerController.instance.PlusGold(ExitTheDungeonManager.instance.CheckStage());
         exitTheDungeonManager.GameOver();
     }
 }

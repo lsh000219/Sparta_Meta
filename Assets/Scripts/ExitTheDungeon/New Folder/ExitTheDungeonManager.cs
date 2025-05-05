@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
-public class ExitTheDungeonManager : GameManager
+public class ExitTheDungeonManager : MonoBehaviour
 {
     public static ExitTheDungeonManager instance;
     int stage = 1;

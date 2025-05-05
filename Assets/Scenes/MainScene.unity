@@ -437,7 +437,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Buy
+  m_text: Equip
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2449,7 +2449,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Buy
+  m_text: Equip
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3460,11 +3460,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exitButton: {fileID: 1799934526}
+  canvas: {fileID: 0}
   button1: {fileID: 1326707206}
   button2: {fileID: 1047490390}
   button4: {fileID: 925647576}
   button8: {fileID: 743597588}
   button16: {fileID: 239110652}
+  button11: {fileID: 1479168846}
+  button22: {fileID: 1108966582}
+  button44: {fileID: 1736188540}
+  button88: {fileID: 507961337}
+  button1616: {fileID: 2101605597}
 --- !u!1 &736141089
 GameObject:
   m_ObjectHideFlags: 0
@@ -3646,6 +3652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exitButton: {fileID: 824842851}
+  canvas: {fileID: 1701038286}
   startButton: {fileID: 1264541801}
 --- !u!61 &736671982
 BoxCollider2D:
@@ -3785,6 +3792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exitButton: {fileID: 1335292391}
+  canvas: {fileID: 0}
   bestWaveText: {fileID: 1829445508}
   beststageText: {fileID: 1307389314}
 --- !u!1 &743597586
@@ -4475,7 +4483,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Buy
+  m_text: Equip
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9701,7 +9709,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1461408227}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9712,7 +9720,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000030517578, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1478602138
@@ -13865,7 +13873,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Buy
+  m_text: Equip
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -15588,7 +15596,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Buy
+  m_text: Equip
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -26847,11 +26855,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exitButton: {fileID: 279715471}
-  button1: {fileID: 0}
-  button2: {fileID: 0}
-  button4: {fileID: 0}
-  button8: {fileID: 0}
-  button16: {fileID: 0}
+  canvas: {fileID: 0}
+  button1: {fileID: 156894433}
+  button2: {fileID: 1262047073}
+  button4: {fileID: 1617657116}
+  button8: {fileID: 966693711}
+  button16: {fileID: 1820327450}
+  button11: {fileID: 820833902}
+  button22: {fileID: 68894153}
+  button44: {fileID: 548649075}
+  button88: {fileID: 1866269020}
+  button1616: {fileID: 1706214734}
 --- !u!1 &2101605595
 GameObject:
   m_ObjectHideFlags: 0
