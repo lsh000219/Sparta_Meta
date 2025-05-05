@@ -20,5 +20,7 @@ public class ShopNPC : BaseNPC
         button16.onClick.AddListener(() => Trade(16));
     }
 
-    public void Trade(int itemNum) { if (PlayerController.instance.CheckGold() < 100) { PlayerController.instance.BuyItem(100, itemNum); } }
+    public void Trade(int itemNum) { if (PlayerController.instance.Gold() < 100) { 
+            //PlayerController.instance.BuyItem(100, itemNum); 
+        } }
 }

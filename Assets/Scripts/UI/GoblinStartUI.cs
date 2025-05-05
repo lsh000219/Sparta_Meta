@@ -18,7 +18,7 @@ public class GoblinStartUI : BaseUI
 
     public void OnClickStartButton()
     {
-        GoblinManager.instance.StartGame();
+        GameManager.instance.StartGame();
     }
 
     public void OnClickExitButton()

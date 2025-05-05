@@ -1,30 +1,44 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class PlayerController : BaseController
 {
     public static PlayerController instance;
 
     private Camera camera;
-    private int gold = 100, inventory = 0, Equip = 0;
+    private int gold, inven = 0, Equip = 0;
+    private List<ItemController> inventory;
 
-    public void Start()
+
+    public void Init(GameManager gameManager)
     {
         this.gold = PlayerPrefs.GetInt("Gold", 0);
+        this.inven = PlayerPrefs.GetInt("Inven", 0);
         instance = this;
+        camera = Camera.main;
     }
+
     public void PlusGold(int gold) { this.gold += gold; PlayerPrefs.SetInt("Gold", this.gold); PlayerPrefs.Save(); }
 
-    public int CheckGold() { return gold; }
+    public int Gold() { return gold; }
 
-    public void BuyItem(int gold, int item) { MinusGold(gold); GetItem(item);}
+    public void BuyItem(ItemController itemController) { MinusGold(itemController.Price); GetItem(itemController);}
 
-    private void MinusGold(int gold) { this.gold -= gold; PlayerPrefs.SetInt("Gold", this.gold); PlayerPrefs.Save(); }
+    private void MinusGold(int price) 
+    { 
+        this.gold -= price; 
+        PlayerPrefs.SetInt("Gold", this.gold); PlayerPrefs.Save(); 
+    }
 
-    private void GetItem(int item) { inventory += item; }
+    private void GetItem(ItemController itemController) { 
+        inven += itemController.ItemNum; 
+        inventory.Add(itemController); 
+        PlayerPrefs.SetInt("Inven", this.inven); PlayerPrefs.Save();
+    }
 
-    public bool SearchItem(int item)
+    public bool SearchItem(int itemNum) // 인벤토리에 아이템이 있는지 확인
     {
-        if ((inventory & item) == item) return true;
+        if ((inven & itemNum) == itemNum) return true;
         else return false;
     }
 
@@ -54,13 +68,14 @@ public class PlayerController : BaseController
     public override void Death()
     {
         base.Death();
-        GoblinManager.instance.GameOver();
+        GameManager.instance.GameOver();
     }
 
-    public void ExitGoblin() { transform.position = new Vector2(0f, 8.18f); }
+    public void ExitGoblin() { transform.position = new Vector2(0f, 8.18f); } //고블린 게임 종료 후 위치 이동
 
-    //private void DeleteData()   
+    //private void DeleteData()
     //{
     //    PlayerPrefs.DeleteKey("Gold");
+    //    PlayerPrefs.DeleteKey("Inven");
     //}
 }

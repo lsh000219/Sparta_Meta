@@ -13,11 +13,11 @@ public class BoxNPC : BaseNPC
 
     private void Start()
     {
-        button1.onClick.AddListener(() => Equip(1));
-        button2.onClick.AddListener(() => Equip(2));
-        button4.onClick.AddListener(() => Equip(4));
-        button8.onClick.AddListener(() => Equip(8));
-        button16.onClick.AddListener(() => Equip(16));
+        //button1.onClick.AddListener(() => Equip(1));
+        //button2.onClick.AddListener(() => Equip(2));
+        //button4.onClick.AddListener(() => Equip(4));
+        //button8.onClick.AddListener(() => Equip(8));
+        //button16.onClick.AddListener(() => Equip(16));
     }
 
     public void Equip(int i)
