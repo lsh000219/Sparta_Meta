@@ -4,15 +4,13 @@ public class PlayerController : BaseController
 {
     public static PlayerController instance;
 
-    private GoblinManager goblinManager;
     private Camera camera;
-    private int gold = 100, inventory = 0;
+    private int gold = 100, inventory = 0, Equip = 0;
 
-    public void Init(GoblinManager goblinManager)
+    public void Start()
     {
         this.gold = PlayerPrefs.GetInt("Gold", 0);
         instance = this;
-        this.goblinManager = goblinManager;
     }
     public void PlusGold(int gold) { this.gold += gold; PlayerPrefs.SetInt("Gold", this.gold); PlayerPrefs.Save(); }
 
@@ -56,13 +54,13 @@ public class PlayerController : BaseController
     public override void Death()
     {
         base.Death();
-        goblinManager.GameOver();
+        GoblinManager.instance.GameOver();
     }
 
     public void ExitGoblin() { transform.position = new Vector2(0f, 8.18f); }
 
-    private void DeleteData()
-    {
-        PlayerPrefs.DeleteKey("Gold");
-    }
+    //private void DeleteData()   
+    //{
+    //    PlayerPrefs.DeleteKey("Gold");
+    //}
 }

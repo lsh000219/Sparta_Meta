@@ -2,12 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GoblinManager : GameManager
 {
     public static GoblinManager instance;
-    public PlayerController player { get; private set; }
     private ResourceController _playerResourceController;
 
     [SerializeField] private int currentWaveIndex = 0;
@@ -17,16 +17,14 @@ public class GoblinManager : GameManager
     private ObjectManager objectManager;
     public static bool isFirstLoading = true;
 
-    private void Awake()
+    private void Start()
     {
         instance = this;
-        player = FindObjectOfType<PlayerController>();
-        player.Init(this);
 
         uiManager = FindObjectOfType<GoblinUIManager>();
         objectManager = FindObjectOfType<ObjectManager>();
 
-        _playerResourceController = player.GetComponent<ResourceController>();
+        _playerResourceController = PlayerController.instance.GetComponent<ResourceController>();
         _playerResourceController.RemoveHealthChangeEvent(uiManager.ChangePlayerHP);
         _playerResourceController.AddHealthChangeEvent(uiManager.ChangePlayerHP);
 
@@ -56,6 +54,10 @@ public class GoblinManager : GameManager
 
     public void GameOver()
     {
+        if (currentWaveIndex > PlayerPrefs.GetInt("BestWave", 0))
+        {
+            PlayerPrefs.SetInt("BestWave", currentWaveIndex); PlayerPrefs.Save();
+        }
         PlayerController.instance.PlusGold(currentWaveIndex);
         enemyManager.StopWave();
         uiManager.SetGameOver();

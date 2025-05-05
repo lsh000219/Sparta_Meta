@@ -41,6 +41,10 @@ public class ExitTheDungeonManager : GameManager
     }
 
     public void GameOver() { 
+        if(stage> PlayerPrefs.GetInt("Beststage", 0)) { 
+            PlayerPrefs.SetInt("Beststage", stage); 
+            PlayerPrefs.Save(); 
+        }
         trapManager.EraseTrap(); player.IsDead(true); 
         exitTheDungeonGameOverUI.GameOverUI(); 
     }
