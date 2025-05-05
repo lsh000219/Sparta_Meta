@@ -15,6 +15,7 @@ public class ExitTheDungeonPlayerController : MonoBehaviour
 
     public void StartRun()
     {
+        speed += speed + PlayerController.instance.ItemStatSpeed();
         rb.velocity = new Vector2(speed, 0);
     }
 

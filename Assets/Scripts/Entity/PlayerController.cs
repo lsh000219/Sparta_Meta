@@ -7,12 +7,12 @@ public class PlayerController : BaseController
     public static PlayerController instance;
 
     private Camera camera;
-    private int gold, inven = 0, equip = 0;
+    private int gold, inven = 0, equip = 0, skin = 0;
     private ItemManager itemManager;
-
 
     public void Init(GameManager gameManager)
     {
+        
         this.gold = PlayerPrefs.GetInt("Gold", 0);
         this.inven = PlayerPrefs.GetInt("Inven", 0);
         this.equip = PlayerPrefs.GetInt("Equip", 0);
@@ -20,7 +20,6 @@ public class PlayerController : BaseController
         itemManager = new ItemManager();
         camera = Camera.main;
     }
-
 
     public int Gold() { return gold; }
 
@@ -50,8 +49,10 @@ public class PlayerController : BaseController
 
     public int Equip {
         get { return equip; }
-        set { equip = value; }
+        set { equip = value; PlayerPrefs.SetInt("Equip", this.equip); PlayerPrefs.Save(); }
     }
+
+    public int ItemStatSpeed() { return itemManager.ItemStatSpeed(equip); } 
 
     protected override void HandleAction()
     {

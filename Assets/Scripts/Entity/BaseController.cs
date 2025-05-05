@@ -6,6 +6,7 @@ public class BaseController : MonoBehaviour
 
     [SerializeField] private SpriteRenderer characterRenderer;
     [SerializeField] private Transform weaponPivot;
+    [SerializeField] private Transform RidingPivot;
 
     protected Vector2 movementDirection = Vector2.zero;
     public Vector2 MovementDirection { get { return movementDirection; } }
@@ -18,7 +19,7 @@ public class BaseController : MonoBehaviour
 
     protected AnimationHandler animationHandler;
 
-    protected StatHandler statHandler;
+    StatHandler statHandler;
 
     [SerializeField] public WeaponHandler WeaponPrefab;
     protected WeaponHandler weaponHandler;
@@ -66,7 +67,7 @@ public class BaseController : MonoBehaviour
 
     private void Movment(Vector2 direction)
     {
-        direction = direction * statHandler.Speed;
+        direction = direction * statHandler.FinalSpeed();
         if (knockbackDuration > 0.0f)
         {
             direction *= 0.2f;

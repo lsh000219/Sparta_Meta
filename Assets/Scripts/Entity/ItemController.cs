@@ -17,8 +17,4 @@ public class ItemController
     public int Atk { get { return atk; } }
     public int Speed { get { return speed; } }
 
-    public void button(int i)
-    {
-
-    }
 }

@@ -11,6 +11,7 @@ public class BoxNPC : BaseNPC
     [SerializeField] private Button button4;
     [SerializeField] private Button button8;
     [SerializeField] private Button button16;
+    [SerializeField] private Button button0;
 
     [SerializeField] public TextMeshProUGUI button11;
     [SerializeField] public TextMeshProUGUI button22;
@@ -20,6 +21,7 @@ public class BoxNPC : BaseNPC
 
     private void Start()
     {
+        button0.onClick.AddListener(() => Equip(0));
         button1.onClick.AddListener(() => Equip(1));
         button2.onClick.AddListener(() => Equip(2));
         button4.onClick.AddListener(() => Equip(4));
@@ -35,11 +37,11 @@ public class BoxNPC : BaseNPC
         if (!PlayerController.instance.SearchItem(8)) { button8.gameObject.SetActive(false); }
         if (!PlayerController.instance.SearchItem(16)) { button16.gameObject.SetActive(false); }
 
-        if (PlayerController.instance.Equip == 1) { button11.text = "Equipped"; }
-        if (PlayerController.instance.Equip == 2) { button22.text = "Equipped"; }
-        if (PlayerController.instance.Equip == 4) { button44.text = "Equipped"; }
-        if (PlayerController.instance.Equip == 8) { button88.text = "Equipped"; }
-        if (PlayerController.instance.Equip == 16) { button1616.text = "Equipped"; }
+        if (PlayerController.instance.Equip == 1) { button11.text = "Equipped"; } else { button11.text = "Equip"; }
+        if (PlayerController.instance.Equip == 2) { button22.text = "Equipped"; } else { button22.text = "Equip"; }
+        if (PlayerController.instance.Equip == 4) { button44.text = "Equipped"; } else { button44.text = "Equip"; }
+        if (PlayerController.instance.Equip == 8) { button88.text = "Equipped"; } else { button88.text = "Equip"; }
+        if (PlayerController.instance.Equip == 16) { button1616.text = "Equipped"; } else { button1616.text = "Equip"; }
     }
 
     private void Equip(int i) { PlayerController.instance.Equip = i; }
