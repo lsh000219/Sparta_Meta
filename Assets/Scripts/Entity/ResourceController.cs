@@ -59,9 +59,6 @@ public class ResourceController : MonoBehaviour
         if (change < 0)
         {
             animationHandler.Damage();
-
-            if (damageClip)
-                SoundManager.PlayClip(damageClip);
         }
 
         if (CurrentHealth <= 0f)

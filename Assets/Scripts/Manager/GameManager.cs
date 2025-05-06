@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
         enemyManager.Init(this);
     }
 
+    public int CurrentWaveIndex() { return currentWaveIndex; }
+
     public void StartGame()
     {
         currentWaveIndex = 0;

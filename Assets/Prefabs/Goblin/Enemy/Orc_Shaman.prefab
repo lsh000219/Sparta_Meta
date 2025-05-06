@@ -119,8 +119,8 @@ GameObject:
   - component: {fileID: 6926403118806676281}
   - component: {fileID: 4203557828246696216}
   - component: {fileID: 6179157216816926650}
-  - component: {fileID: 953228498647404746}
   - component: {fileID: -2650669937848753564}
+  - component: {fileID: 6510020675808682357}
   m_Layer: 8
   m_Name: Orc_Shaman
   m_TagString: Untagged
@@ -243,20 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62bdee865df6b264dad163f76db87160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &953228498647404746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5534137752138129595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a23875dd95ece6458c0fa7e89de8f98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 10
-  speed: 3
+  animator: {fileID: 1308186331426871385}
 --- !u!114 &-2650669937848753564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,8 +258,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterRenderer: {fileID: 4913686894164305379}
   weaponPivot: {fileID: 772520908430532658}
+  RidingPivot: {fileID: 0}
   WeaponPrefab: {fileID: 5781665385510755178, guid: efad6ae9b8f56bd4bb2d37da983d1eba, type: 3}
   followRange: 15
+--- !u!114 &6510020675808682357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5534137752138129595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19717d553f8b09648b3b0838b0e0c993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  speed: 3
 --- !u!1 &6028744303651948651
 GameObject:
   m_ObjectHideFlags: 0

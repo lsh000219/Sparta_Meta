@@ -19,7 +19,9 @@ public class BaseController : MonoBehaviour
 
     protected AnimationHandler animationHandler;
 
+    //[SerializeField] StatHandler statHandler;
     StatHandler statHandler;
+    EnemyStatHandler enemyStatHandler;
 
     [SerializeField] public WeaponHandler WeaponPrefab;
     protected WeaponHandler weaponHandler;
@@ -37,11 +39,6 @@ public class BaseController : MonoBehaviour
             weaponHandler = Instantiate(WeaponPrefab, weaponPivot);
         else
             weaponHandler = GetComponentInChildren<WeaponHandler>();
-    }
-
-    protected virtual void Start()
-    {
-
     }
 
     protected virtual void Update()
@@ -67,7 +64,12 @@ public class BaseController : MonoBehaviour
 
     private void Movment(Vector2 direction)
     {
-        direction = direction * statHandler.FinalSpeed();
+        if (statHandler != null) { direction = direction * statHandler.FinalSpeed(); }
+        else if (enemyStatHandler != null) { direction = direction * enemyStatHandler.FinalSpeed(); }
+
+        if (enemyStatHandler != null) { direction = direction * enemyStatHandler.FinalSpeed(); }
+        else if (statHandler != null) { direction = direction * statHandler.FinalSpeed(); }
+
         if (knockbackDuration > 0.0f)
         {
             direction *= 0.2f;

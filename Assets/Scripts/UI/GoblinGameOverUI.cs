@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -14,6 +15,7 @@ public class GoblinGameOverUI : BaseUI
 
     [SerializeField] private Button restartButton;
     [SerializeField] private Button exitButton;
+    [SerializeField] private TextMeshProUGUI scoreText;
 
     public override void Init(UIManager uiManager)
     {
@@ -21,6 +23,8 @@ public class GoblinGameOverUI : BaseUI
         restartButton.onClick.AddListener(OnClickRestartButton);
         exitButton.onClick.AddListener(OnClickExitButton);
     }
+    private void Update() { ScoreText(); }
+    private void ScoreText() { scoreText.text = (GameManager.instance.CurrentWaveIndex()).ToString(); }
 
     public void OnClickRestartButton()
     {

@@ -45,7 +45,8 @@ public class ExitTheDungeonManager : MonoBehaviour
             PlayerPrefs.SetInt("Beststage", stage); 
             PlayerPrefs.Save(); 
         }
-        trapManager.EraseTrap(); player.IsDead(true); 
+        trapManager.EraseTrap(); player.IsDead(true);
+        exitTheDungeonGameOverUI.SetStageText(stage);
         exitTheDungeonGameOverUI.GameOverUI(); 
     }
 }

@@ -7,12 +7,12 @@ public class PlayerController : BaseController
     public static PlayerController instance;
 
     private Camera camera;
-    private int gold, inven = 0, equip = 0, skin = 0;
+    private int gold, inven = 0, equip = 0;
     private ItemManager itemManager;
 
     public void Init(GameManager gameManager)
     {
-        
+
         this.gold = PlayerPrefs.GetInt("Gold", 0);
         this.inven = PlayerPrefs.GetInt("Inven", 0);
         this.equip = PlayerPrefs.GetInt("Equip", 0);
@@ -35,21 +35,22 @@ public class PlayerController : BaseController
         PlayerPrefs.SetInt("Gold", this.gold); PlayerPrefs.Save(); 
     }
 
-    private void GetItem(ItemController itemController) { 
+    private void GetItem(ItemController itemController) {
         inven += itemController.ItemNum; 
-        //inventory.Add(itemController); 
-        PlayerPrefs.SetInt("Inven", this.inven); PlayerPrefs.Save();
+
+        PlayerPrefs.SetInt("Inven", inven); PlayerPrefs.Save();
     }
 
     public bool SearchItem(int itemNum) // 인벤토리에 아이템이 있는지 확인
     {
-        if ((inven & itemNum) == itemNum) return true;
-        else return false;
+        return (inven & itemManager.ItemController(itemNum).ItemNum) == itemManager.ItemController(itemNum).ItemNum;
     }
 
     public int Equip {
         get { return equip; }
-        set { equip = value; PlayerPrefs.SetInt("Equip", this.equip); PlayerPrefs.Save(); }
+        set { 
+            equip = value; PlayerPrefs.SetInt("Equip", this.equip); PlayerPrefs.Save();
+        }
     }
 
     public int ItemStatSpeed() { return itemManager.ItemStatSpeed(equip); } 

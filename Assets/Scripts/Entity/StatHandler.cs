@@ -16,8 +16,8 @@ public class StatHandler : MonoBehaviour
     public float Speed
     {
         get => speed;
-        set => speed = Mathf.Clamp(speed, 0, 20);
+        set => speed = Mathf.Clamp(value, 0, 20);
     }
 
-    public float FinalSpeed() { return speed + PlayerController.instance.ItemStatSpeed(); }
+    public float FinalSpeed() { Speed = PlayerController.instance.ItemStatSpeed(); return speed; }
 }

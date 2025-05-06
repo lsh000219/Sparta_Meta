@@ -6,10 +6,9 @@ public class ItemController
 {
     int itemNum, price, atk, speed;
 
-    public ItemController(int itemNum, int price, int atk, int speed)
+    public ItemController(int itemNum, int price, int speed)
     {
-        this.itemNum = itemNum; this.price = price;
-        this.atk = atk; this.speed = speed;
+        this.itemNum = itemNum; this.price = price; this.speed = speed;
     }
 
     public int ItemNum { get { return itemNum; } }

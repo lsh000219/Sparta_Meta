@@ -42,11 +42,11 @@ public class BoxNPC : BaseNPC
 
     private void Update()
     {
-        if (!PlayerController.instance.SearchItem(1)) { button1.gameObject.SetActive(false); }
-        if (!PlayerController.instance.SearchItem(2)) { button2.gameObject.SetActive(false); }
-        if (!PlayerController.instance.SearchItem(4)) { button4.gameObject.SetActive(false); }
-        if (!PlayerController.instance.SearchItem(8)) { button8.gameObject.SetActive(false); }
-        if (!PlayerController.instance.SearchItem(16)) { button16.gameObject.SetActive(false); }
+        if (!PlayerController.instance.SearchItem(1)) { button1.gameObject.SetActive(false);  }else { button1.gameObject.SetActive(true); }
+        if (!PlayerController.instance.SearchItem(2)) { button2.gameObject.SetActive(false); } else { button2.gameObject.SetActive(true); }
+        if (!PlayerController.instance.SearchItem(3)) { button4.gameObject.SetActive(false); } else { button4.gameObject.SetActive(true); }
+        if (!PlayerController.instance.SearchItem(4)) { button8.gameObject.SetActive(false); } else { button8.gameObject.SetActive(true); }
+        if (!PlayerController.instance.SearchItem(5)) { button16.gameObject.SetActive(false); } else { button16.gameObject.SetActive(true); }
 
         if (PlayerController.instance.Equip == 1) { button11.text = "Equipped"; } else { button11.text = "Equip"; }
         if (PlayerController.instance.Equip == 2) { button22.text = "Equipped"; } else { button22.text = "Equip"; }
