@@ -199,6 +199,7 @@ MonoBehaviour:
   characterRenderer: {fileID: 6382477558306308871}
   weaponPivot: {fileID: 4712113376390145899}
   RidingPivot: {fileID: 0}
+  statHandler: {fileID: 3303240282109367861}
   WeaponPrefab: {fileID: 5781665385510755178, guid: 535784749f8494d42b8569a4f055cf04, type: 3}
   followRange: 15
 --- !u!114 &3431393164841046604

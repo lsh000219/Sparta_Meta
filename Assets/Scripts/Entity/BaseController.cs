@@ -19,9 +19,9 @@ public class BaseController : MonoBehaviour
 
     protected AnimationHandler animationHandler;
 
-    //[SerializeField] StatHandler statHandler;
-    StatHandler statHandler;
-    EnemyStatHandler enemyStatHandler;
+    [SerializeField] StatHandler statHandler;
+    //StatHandler statHandler;
+    //EnemyStatHandler enemyStatHandler;
 
     [SerializeField] public WeaponHandler WeaponPrefab;
     protected WeaponHandler weaponHandler;
@@ -64,11 +64,19 @@ public class BaseController : MonoBehaviour
 
     private void Movment(Vector2 direction)
     {
-        if (statHandler != null) { direction = direction * statHandler.FinalSpeed(); }
-        else if (enemyStatHandler != null) { direction = direction * enemyStatHandler.FinalSpeed(); }
-
-        if (enemyStatHandler != null) { direction = direction * enemyStatHandler.FinalSpeed(); }
-        else if (statHandler != null) { direction = direction * statHandler.FinalSpeed(); }
+        //if (enemyStatHandler != null) { direction = direction * enemyStatHandler.FinalSpeed();
+        //    Debug.Log("enemyStatHandler : " + enemyStatHandler.FinalSpeed());
+        //}
+        //else if (statHandler != null) { direction = direction * statHandler.FinalSpeed();
+        //    //Debug.Log("statHandler : " + statHandler.FinalSpeed());
+        //}
+        if (statHandler is EnemyStatHandler enemy)
+        {
+            direction = direction * enemy.FinalSpeed();  // Enemy 전용 속도
+            Debug.Log("Enemy speed");
+        }
+        else if (statHandler != null)
+        { direction = direction * statHandler.FinalSpeed(); }
 
         if (knockbackDuration > 0.0f)
         {

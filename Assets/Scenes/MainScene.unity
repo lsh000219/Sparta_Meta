@@ -29153,6 +29153,7 @@ MonoBehaviour:
   characterRenderer: {fileID: 2063313622}
   weaponPivot: {fileID: 928470750}
   RidingPivot: {fileID: 0}
+  statHandler: {fileID: 1998936889}
   WeaponPrefab: {fileID: 5781665385510755178, guid: 21dac2d681f98a14ebc24e7d71a6b0a5, type: 3}
 --- !u!114 &1998936888
 MonoBehaviour:
