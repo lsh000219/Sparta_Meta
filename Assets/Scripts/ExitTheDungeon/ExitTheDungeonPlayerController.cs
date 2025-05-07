@@ -11,6 +11,17 @@ public class ExitTheDungeonPlayerController : MonoBehaviour
     [SerializeField] private GameObject Gob;
     [SerializeField] private GameObject Liz;
 
+    [SerializeField] private Sprite knight;
+    [SerializeField] private Sprite elf;
+    [SerializeField] private Sprite dwarf;
+
+    [SerializeField] private RuntimeAnimatorController knightAnimator;
+    [SerializeField] private RuntimeAnimatorController elfAnimator;
+    [SerializeField] private RuntimeAnimatorController dwarfAnimator;
+
+    [SerializeField] private Animator Animator;
+    [SerializeField] public SpriteRenderer characterRenderer;
+
     private Camera camera;
     public static ExitTheDungeonPlayerController instance;
     protected AnimationHandler animationHandler;
@@ -23,7 +34,7 @@ public class ExitTheDungeonPlayerController : MonoBehaviour
 
     public void StartRun()
     {
-        speed += speed + PlayerController.instance.ItemStatSpeed();
+        speed = PlayerController.instance.ItemStatSpeed();
         rb.velocity = new Vector2(speed, 0);
     }
 
@@ -33,12 +44,25 @@ public class ExitTheDungeonPlayerController : MonoBehaviour
     {
         camera = Camera.main;
         animationHandler = GetComponent<AnimationHandler>();
-        animationHandler.ExitTheDungeonOn();
         rb = GetComponent<Rigidbody2D>();
     }
 
     private void Start()
     {
+        switch (PlayerPrefs.GetInt("Skin", 1))
+        {
+            case 1:
+                characterRenderer.sprite = knight;
+                Animator.runtimeAnimatorController = knightAnimator; break;
+            case 2:
+                characterRenderer.sprite = elf;
+                Animator.runtimeAnimatorController = elfAnimator; break;
+            case 4:
+                characterRenderer.sprite = dwarf;
+                Animator.runtimeAnimatorController = dwarfAnimator; break;
+        }
+        animationHandler.ExitTheDungeonOn();
+
         switch (PlayerPrefs.GetInt("Equip", 0))
         {
             case 0:

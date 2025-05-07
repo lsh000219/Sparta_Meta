@@ -83,14 +83,6 @@ public class BoxNPC : BaseNPC
                 if (Riding != null) { Destroy(Riding); }
                 Riding = Instantiate(Liz, RidingPivot);
                 break;
-
         }
-    
-    
-    
-    
-    
-    
     }
-
 }

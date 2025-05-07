@@ -4,9 +4,10 @@ public class BaseController : MonoBehaviour
 {
     protected Rigidbody2D _rigidbody;
 
-    [SerializeField] private SpriteRenderer characterRenderer;
+    [SerializeField] public SpriteRenderer characterRenderer;
     [SerializeField] private Transform weaponPivot;
     [SerializeField] private Transform RidingPivot;
+    
 
     protected Vector2 movementDirection = Vector2.zero;
     public Vector2 MovementDirection { get { return movementDirection; } }
@@ -64,15 +65,9 @@ public class BaseController : MonoBehaviour
 
     private void Movment(Vector2 direction)
     {
-        //if (enemyStatHandler != null) { direction = direction * enemyStatHandler.FinalSpeed();
-        //    Debug.Log("enemyStatHandler : " + enemyStatHandler.FinalSpeed());
-        //}
-        //else if (statHandler != null) { direction = direction * statHandler.FinalSpeed();
-        //    //Debug.Log("statHandler : " + statHandler.FinalSpeed());
-        //}
         if (statHandler is EnemyStatHandler enemy)
         {
-            direction = direction * enemy.FinalSpeed();  // Enemy 전용 속도
+            direction = direction * enemy.FinalSpeed();  
             Debug.Log("Enemy speed");
         }
         else if (statHandler != null)
