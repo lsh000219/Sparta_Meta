@@ -4,8 +4,10 @@ public class BaseController : MonoBehaviour
 {
     protected Rigidbody2D _rigidbody;
 
-    [SerializeField] private SpriteRenderer characterRenderer;
+    [SerializeField] public SpriteRenderer characterRenderer;
     [SerializeField] private Transform weaponPivot;
+    [SerializeField] private Transform RidingPivot;
+    
 
     protected Vector2 movementDirection = Vector2.zero;
     public Vector2 MovementDirection { get { return movementDirection; } }
@@ -18,7 +20,9 @@ public class BaseController : MonoBehaviour
 
     protected AnimationHandler animationHandler;
 
-    protected StatHandler statHandler;
+    [SerializeField] StatHandler statHandler;
+    //StatHandler statHandler;
+    //EnemyStatHandler enemyStatHandler;
 
     [SerializeField] public WeaponHandler WeaponPrefab;
     protected WeaponHandler weaponHandler;
@@ -36,11 +40,6 @@ public class BaseController : MonoBehaviour
             weaponHandler = Instantiate(WeaponPrefab, weaponPivot);
         else
             weaponHandler = GetComponentInChildren<WeaponHandler>();
-    }
-
-    protected virtual void Start()
-    {
-
     }
 
     protected virtual void Update()
@@ -66,7 +65,14 @@ public class BaseController : MonoBehaviour
 
     private void Movment(Vector2 direction)
     {
-        direction = direction * statHandler.Speed;
+        if (statHandler is EnemyStatHandler enemy)
+        {
+            direction = direction * enemy.FinalSpeed();  
+            Debug.Log("Enemy speed");
+        }
+        else if (statHandler != null)
+        { direction = direction * statHandler.FinalSpeed(); }
+
         if (knockbackDuration > 0.0f)
         {
             direction *= 0.2f;

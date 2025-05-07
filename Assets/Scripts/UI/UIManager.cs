@@ -10,6 +10,5 @@ public abstract class UIManager : MonoBehaviour
         GoblinStart,
         GoblinGame,
         GoblinGameOver,
-        ExitTheDungeonStart,
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StatHandler : MonoBehaviour
 {
+
     [Range(1, 100)][SerializeField] private int health = 10;
     public int Health
     {
@@ -16,5 +17,9 @@ public class StatHandler : MonoBehaviour
     {
         get => speed;
         set => speed = Mathf.Clamp(value, 0, 20);
+    }
+
+    public float FinalSpeed() { //Speed = PlayerController.instance.ItemStatSpeed(); 
+        return PlayerController.instance.ItemStatSpeed(); 
     }
 }

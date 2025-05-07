@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,6 +11,7 @@ public class ExitTheDungeonGameOverUI : MonoBehaviour
     private ExitTheDungeonGameUI exitTheDungeonGameUI;
     [SerializeField] private Button restartButton;
     [SerializeField] private Button exitButton;
+    [SerializeField] private TextMeshProUGUI stageText;
 
     private void Awake()
     {
@@ -18,6 +20,8 @@ public class ExitTheDungeonGameOverUI : MonoBehaviour
         restartButton.onClick.AddListener(OnClickRestartButton);
         exitButton.onClick.AddListener(OnClickExitButton);
     }
+
+    public void SetStageText(int i) {  stageText.text = i.ToString(); }
 
     public void GameOverUI()
     {

@@ -25,18 +25,18 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private float timeBetweenSpawns = 0.2f;
     [SerializeField] private float timeBetweenWaves = 1f;
 
-    GoblinManager goblinManager;
+    GameManager gameManager;
 
-    public void Init(GoblinManager goblinManager)
+    public void Init(GameManager gameManager)
     {
-        this.goblinManager = goblinManager;
+        this.gameManager = gameManager;
     }
 
     public void StartWave(int waveCount)
     {
         if (waveCount <= 0)
         {
-            goblinManager.EndOfWave();
+            gameManager.EndOfWave();
             return;
         }
 
@@ -96,7 +96,7 @@ public class EnemyManager : MonoBehaviour
         // 적 생성 및 리스트에 추가
         GameObject spawnedEnemy = Instantiate(randomPrefab, new Vector3(randomPosition.x, randomPosition.y), Quaternion.identity);
         EnemyController enemyController = spawnedEnemy.GetComponent<EnemyController>();
-        enemyController.Init(this, goblinManager.player.transform);
+        enemyController.Init(this, PlayerController.instance.transform);
 
         activeEnemies.Add(enemyController);
     }
@@ -121,6 +121,6 @@ public class EnemyManager : MonoBehaviour
 
         Destroy(enemy.gameObject);
         if (enemySpawnComplite && activeEnemies.Count == 0)
-            goblinManager.EndOfWave();
+            gameManager.EndOfWave();
     }
 }

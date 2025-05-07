@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
-public class ExitTheDungeonManager : GameManager
+public class ExitTheDungeonManager : MonoBehaviour
 {
     public static ExitTheDungeonManager instance;
     int stage = 1;
@@ -31,6 +31,8 @@ public class ExitTheDungeonManager : GameManager
         trapManager.EraseTrap(); trapManager.StartStage(stage);
     }
 
+    public int CheckStage() {  return stage; }
+
     public void GameStart()
     {
         stage = 1;
@@ -38,5 +40,13 @@ public class ExitTheDungeonManager : GameManager
         trapManager.StartStage(stage);
     }
 
-    public void GameOver() { trapManager.EraseTrap(); player.IsDead(true); exitTheDungeonGameOverUI.GameOverUI(); }
+    public void GameOver() { 
+        if(stage> PlayerPrefs.GetInt("Beststage", 0)) { 
+            PlayerPrefs.SetInt("Beststage", stage); 
+            PlayerPrefs.Save(); 
+        }
+        trapManager.EraseTrap(); player.IsDead(true);
+        exitTheDungeonGameOverUI.SetStageText(stage);
+        exitTheDungeonGameOverUI.GameOverUI(); 
+    }
 }

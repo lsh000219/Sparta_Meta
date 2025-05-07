@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 310423275333735119}
   - component: {fileID: 3303240282109367861}
   - component: {fileID: 6530487293957797053}
+  - component: {fileID: 3431393164841046604}
   m_Layer: 8
   m_Name: Goblin
   m_TagString: Untagged
@@ -168,6 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62bdee865df6b264dad163f76db87160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 2665437571042870413}
 --- !u!114 &3303240282109367861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,7 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
-  speed: 2
+  speed: 3
 --- !u!114 &6530487293957797053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,8 +198,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterRenderer: {fileID: 6382477558306308871}
   weaponPivot: {fileID: 4712113376390145899}
+  RidingPivot: {fileID: 0}
+  statHandler: {fileID: 3303240282109367861}
   WeaponPrefab: {fileID: 5781665385510755178, guid: 535784749f8494d42b8569a4f055cf04, type: 3}
   followRange: 15
+--- !u!114 &3431393164841046604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6761175761919394693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19717d553f8b09648b3b0838b0e0c993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  speed: 3
 --- !u!1 &8366873345025797916
 GameObject:
   m_ObjectHideFlags: 0
